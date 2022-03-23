@@ -1,0 +1,35 @@
+= CLARGS
+
+== Introduction
+
+Command Line ARGumentS (CLARGS) is a library to parse command line arguments with a minimal, declarative and immutable setup.
+
+== Usage
+
+=== Include dependency
+
+For example, in a Maven `pom.xml` file, include:
+
+    <dependency>
+        <groupId>io.gerardpi</groupId>
+        <artifactId>clargs</artifactId>
+        <version>x</version>
+    </dependency>
+
+Then, create your own enum with argument keys:
+
+    static enum ArgKey extends ArgumentKey {
+        YOUR_ARG_A("a", "alongername")
+        YOUR_ARG_B("b", "blongername");
+        private final String shortKey;
+        private final String longKey;
+        ArgKey(String shortKey, String longKey) {
+            this.shortKey = shortKey;
+            this.longKey = longKey;
+        }
+
+        public String getShortKey() { return shortKey; }
+        public String getLongKey() { return longKey; }
+    }
+
+See tests (in `src/test/java`) for an example.
